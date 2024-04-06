@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-heading about-page-heading" id="top" style="background: none">
+        <div class="profile" align="center">
+            <table>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>Email:</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>First Name:</td>
+                    <td>{{ user.first_name }}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>Last Name:</td>
+                    <td>{{ user.last_name }}</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black;">
+                    <td>Date Joined:</td>
+                    <td>{{ user.date_joined }}</td>
+                </tr>
+                <tr>
+                    <td align="left"><a href="{% url 'favourites_url' %}">My Favourites</a></td>
+                    <td align="right"><a href="">History</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock content %}

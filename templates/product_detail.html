@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <br><br>
+    <!-- ***** Product Area Starts ***** -->
+    <section class="section" id="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                <div class="left-images">
+                    <img src="{{ product.thumb.url }}" alt="">
+                    {% for image in product.images.all %}
+                        <img src="{{ image.image.url }}" alt="">
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="right-content">
+                    <h4>{{ product.name }}</h4>
+                    <span class="price">${{ product.price }}</span>
+                    <span>{{ product.description }}</span>
+                    <div class="quote">
+                        <i class="fa fa-quote-left"></i><p>{{ product.brand.name }}</p>
+                    </div>
+                    <div class="total">
+                        <h4>Total: ${{ product.price }}</h4>
+                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="page-heading" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>Check Our Products</h2>
+                        <span>Awesome &amp; Creative Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+
+    <!-- ***** Products Area Starts ***** -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Our Latest Products</h2>
+                        <span>Check out all of our products.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <div class="thumb">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="{% url 'product_detail_url' product.id %}"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="javascript: return false;" onclick="addFavourite(event)" id="fav_{{ product.id }}"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="javascript: return false;" onclick="addCart(event)" id="cart_{{ product.id }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="{{ product.thumb.url }}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <h4>{{ product.name }}</h4>
+                                <span>${{ product.price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <h3>Sorry, there are temporary no products!</h3>
+                {% endfor %}
+                <div class="col-lg-12">
+                    <div class="pagination">
+                        <ul>
+                            {% for page in pages %}
+                                <li class="{{ page.active }}">
+                                    <a href="{% url page.url %}?page={{ page.num }}">{{ page.num }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Products Area Ends ***** -->
+    <script>
+        function addFavourite(e) {
+            let Request = new XMLHttpRequest();
+            let a = e.target;
+            let product_id = a.id;
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = a.children[0];
+                        if (icon.classList.contains('fa-star')) {
+                            icon.classList.remove('fa-star');
+                            icon.classList.add('fa-star-o');
+                        } else {
+                            icon.classList.remove('fa-star-o');
+                            icon.classList.add('fa-star');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+            Request.open("POST", "{% url 'cart_add' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+
+        function addCart(e) {
+            let Request = new XMLHttpRequest();
+            let a = e.target;
+            let product_id = a.id;
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = a.children[0];
+                        if (icon.classList.contains('fa-shopping-cart')) {
+                            icon.classList.remove('fa-shopping-cart');
+                            icon.classList.add('fa-trash-o');
+                        } else {
+                            icon.classList.remove('fa-trash-o');
+                            icon.classList.add('fa-shopping-cart');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+            Request.open("POST", "{% url 'add_favourites_api_url' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+    </script>
+{% endblock content %}
