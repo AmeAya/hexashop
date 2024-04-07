@@ -7,6 +7,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 from .models import *
 
 from django.contrib.auth.decorators import login_required
@@ -347,7 +349,8 @@ def loginView(request):
         user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
-            del request.session['error']
+            if 'error' in request.session.keys():
+                del request.session['error']
             return redirect('profile_url')
         else:
             request.session.update({'error': 'Email and/or password incorrect. Try again'})
@@ -522,7 +525,7 @@ def cart_detail(request):
     ]
 
     total = 0
-    for key, value in request.session.get('cart').items():
+    for key, value in cart.cart.items():
         total += int(value.get('price'))
 
     context = {
@@ -530,3 +533,73 @@ def cart_detail(request):
         'total': total
     }
     return render(request, template_name='cart_detail.html', context=context)
+
+
+@csrf_exempt
+def ticketView(request):
+    if request.method == 'GET':
+        if not request.user.is_authenticated:
+            return redirect('login_url')
+        if not request.user.is_staff:
+            return redirect('home_url')
+        links = [
+            {'name': 'home', 'url': 'home_url', 'active': ''},
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            {'name': 'about', 'url': 'about_url', 'active': ''},
+            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
+            {'name': 'profile', 'url': 'profile_url', 'active': ''},
+            {'name': 'logout', 'url': 'logout_url', 'active': ''},
+        ]
+        tickets = Ticket.objects.filter(is_open=True)
+        context = {
+            'links': links,
+            'tickets': tickets,
+        }
+        return render(request, template_name='tickets.html', context=context)
+    elif request.method == 'POST':
+        email = request.POST.get('email')
+        text = request.POST.get('text')
+        if email is not None and text is not None:
+            ticket = Ticket(email=email, text=text)
+            ticket.save()
+            response = {
+                'id': ticket.pk,
+                'msg': 'Ticket successfully created and opened'
+            }
+            return JsonResponse(data=response, status=status.HTTP_200_OK)
+        response = {
+            'msg': 'Email and/or text is not correct'
+        }
+        return JsonResponse(data=response, status=status.HTTP_400_BAD_REQUEST)
+
+
+def ticketDetailView(request, id):
+    if request.method == 'GET':
+        links = [
+            {'name': 'home', 'url': 'home_url', 'active': ''},
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            {'name': 'about', 'url': 'about_url', 'active': ''},
+            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
+            {'name': 'profile', 'url': 'profile_url', 'active': ''},
+            {'name': 'logout', 'url': 'logout_url', 'active': ''},
+        ]
+        ticket = Ticket.objects.get(id=id)
+        context = {
+            'links': links,
+            'ticket': ticket
+        }
+        return render(request, template_name='ticket_detail.html', context=context)
+    elif request.method == 'POST':
+        id = request.POST.get('id')
+        is_open = request.POST.get('is_open')
+        if is_open is not None and id is not None:
+            ticket = Ticket.objects.get(id=id)
+            ticket.is_open = bool(int(is_open))
+            ticket.save()
+        return redirect('tickets_url')

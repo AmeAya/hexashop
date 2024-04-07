@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-heading about-page-heading" id="top" style="background: none">
+        <div class="container">
+            <table style="width: 80vw;">
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>Date and Time</th>
+                    <th>Action</th>
+                </tr>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.pk }}</td>
+                        <td>{{ ticket.email }}</td>
+                        <td>{{ ticket.created_at }}</td>
+                        <td><a href="{% url 'ticket_url' ticket.id %}">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

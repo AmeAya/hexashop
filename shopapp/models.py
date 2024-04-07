@@ -115,3 +115,10 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.customer} {self.datetime}"
+
+
+class Ticket(models.Model):
+    email = models.EmailField()
+    text = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now())
+    is_open = models.BooleanField(default=True)
