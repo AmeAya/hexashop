@@ -433,7 +433,8 @@ def registerView(request):
         if len(CustomUser.objects.filter(email=email)) > 0:
             request.session.update({'error': 'This email already taken!'})
             return redirect('register_url')
-        del request.session['error']
+        if 'error' in request.session.keys():
+            del request.session['error']
         user = CustomUser.objects.create_user(email=email, password=password)
         login(request, user)
         return redirect('profile_url')
