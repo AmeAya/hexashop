@@ -24,11 +24,36 @@
                     </div>
                     <div class="total">
                         <h4>Total: ${{ product.price }}</h4>
-                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                        <div class="main-border-button">
+                            <a onclick="addCart(this.id)" id="{{ product.id }}">Add To Cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
             </div>
         </div>
     </section>
+    <script>
+        function addCart(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        document.getElementById(product_id).innerHTML = 'Added!';
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'cart_add' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+    </script>
 {% endblock content %}
