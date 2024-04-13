@@ -37,9 +37,21 @@
                             <div class="thumb">
                                 <div class="hover-content">
                                     <ul>
-                                        <li><a href="{% url 'product_detail_url' product.id %}"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="javascript: return false;" onclick="addFavourite(event)" id="fav_{{ product.id }}"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="javascript: return false;" onclick="addCart(event)" id="cart_{{ product.id }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li>
+                                            <a href="{% url 'product_detail_url' product.id %}">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </li>
+                                        <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                            <a>
+                                                <i class="fa fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                            <a>
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <img src="{{ product.thumb.url }}" alt="">
@@ -69,14 +81,13 @@
     </section>
     <!-- ***** Products Area Ends ***** -->
     <script>
-        function addFavourite(e) {
+        function addFavourite(product_id) {
             let Request = new XMLHttpRequest();
-            let a = e.target;
-            let product_id = a.id;
+
             Request.onreadystatechange = function() {
                 if (Request.readyState == 4) {
                     if (Request.status == 200) {
-                        let icon = a.children[0];
+                        let icon = document.getElementById(product_id).children[0].children[0];
                         if (icon.classList.contains('fa-star')) {
                             icon.classList.remove('fa-star');
                             icon.classList.add('fa-star-o');
@@ -89,7 +100,8 @@
                     }
                 }
             }
-            Request.open("POST", "{% url 'cart_add' %}", true);
+
+            Request.open("POST", "{% url 'add_favourites_api_url' %}", true);
             Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
             Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
             let data = {
@@ -98,14 +110,13 @@
             Request.send(JSON.stringify(data));
         }
 
-        function addCart(e) {
+        function addCart(product_id) {
             let Request = new XMLHttpRequest();
-            let a = e.target;
-            let product_id = a.id;
+
             Request.onreadystatechange = function() {
                 if (Request.readyState == 4) {
                     if (Request.status == 200) {
-                        let icon = a.children[0];
+                        let icon = document.getElementById(product_id).children[0].children[0];
                         if (icon.classList.contains('fa-shopping-cart')) {
                             icon.classList.remove('fa-shopping-cart');
                             icon.classList.add('fa-trash-o');
@@ -118,7 +129,8 @@
                     }
                 }
             }
-            Request.open("POST", "{% url 'add_favourites_api_url' %}", true);
+
+            Request.open("POST", "{% url 'cart_add' %}", true);
             Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
             Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
             let data = {

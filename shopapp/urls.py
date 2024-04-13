@@ -19,6 +19,9 @@ urlpatterns = [
     path('registration', registerView, name='register_url'),
     path('tickets', ticketView, name='tickets_url'),
     path('ticket/<int:id>', ticketDetailView, name='ticket_url'),
+    path('checkout', checkoutView, name='checkout_url'),
+    path('buy', buyView, name='buy_url'),
+    path('history', historyView, name='history_url'),
 
     path('api/add_favourites', AddFavouritesApiView.as_view(), name='add_favourites_api_url'),
     path('api/add_cart', AddCartApiView.as_view(), name='cart_add'),

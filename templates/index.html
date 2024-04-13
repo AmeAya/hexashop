@@ -127,14 +127,26 @@
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
-                            <div class="item">
-                                {% for product in mens %}
+                            {% for product in mens %}
+                                <div class="item">
                                     <div class="thumb">
                                         <div class="hover-content">
                                             <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li>
+                                                    <a href="{% url 'product_detail_url' product.id %}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <img src="{{ product.thumb.url }}" alt="">
@@ -142,16 +154,9 @@
                                     <div class="down-content">
                                         <h4>{{ product.name }}</h4>
                                         <span>${{ product.price }}</span>
-                                        <ul class="stars">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
                                     </div>
-                                {% endfor %}
-                            </div>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -178,26 +183,33 @@
                     <div class="women-item-carousel">
                         <div class="owl-women-item owl-carousel">
                             {% for product in womens %}
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'product_detail_url' product.id %}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{ product.thumb.url }}" alt="">
                                     </div>
-                                    <img src="{{ product.thumb.url }}" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>{{ product.name }}</h4>
-                                    <span>${{ product.price }}</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
+                                    <div class="down-content">
+                                        <h4>{{ product.name }}</h4>
+                                        <span>${{ product.price }}</span>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -226,26 +238,33 @@
                     <div class="kid-item-carousel">
                         <div class="owl-kid-item owl-carousel">
                             {% for product in kids %}
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url 'product_detail_url' product.id %}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addFavourite(this.id)" id="fav_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-star"></i>
+                                                    </a>
+                                                </li>
+                                                <li onclick="addCart(this.id)" id="cart_{{ product.id }}" style="cursor: pointer;">
+                                                    <a>
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{ product.thumb.url }}" alt="">
                                     </div>
-                                    <img src="{{ product.thumb.url }}" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4>{{ product.name }}</h4>
-                                    <span>${{ product.price }}</span>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
+                                    <div class="down-content">
+                                        <h4>{{ product.name }}</h4>
+                                        <span>${{ product.price }}</span>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -453,5 +472,65 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function addFavourite(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = document.getElementById(product_id).children[0].children[0];
+                        if (icon.classList.contains('fa-star')) {
+                            icon.classList.remove('fa-star');
+                            icon.classList.add('fa-star-o');
+                        } else {
+                            icon.classList.remove('fa-star-o');
+                            icon.classList.add('fa-star');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'add_favourites_api_url' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+
+        function addCart(product_id) {
+            let Request = new XMLHttpRequest();
+
+            Request.onreadystatechange = function() {
+                if (Request.readyState == 4) {
+                    if (Request.status == 200) {
+                        let icon = document.getElementById(product_id).children[0].children[0];
+                        if (icon.classList.contains('fa-shopping-cart')) {
+                            icon.classList.remove('fa-shopping-cart');
+                            icon.classList.add('fa-trash-o');
+                        } else {
+                            icon.classList.remove('fa-trash-o');
+                            icon.classList.add('fa-shopping-cart');
+                        }
+                    } else if (Request.status == 401) {
+                        window.location.href = "{% url 'login_url' %}";
+                    }
+                }
+            }
+
+            Request.open("POST", "{% url 'cart_add' %}", true);
+            Request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            Request.setRequestHeader('x-csrftoken', '{{ csrf_token }}');
+            let data = {
+                'product_id': product_id
+            }
+            Request.send(JSON.stringify(data));
+        }
+    </script>
     <!-- ***** Subscribe Area Ends ***** -->
 {% endblock content %}

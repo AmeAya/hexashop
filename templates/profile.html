@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td align="left"><a href="{% url 'favourites_url' %}">My Favourites</a></td>
-                    <td align="right"><a href="">History</a></td>
+                    <td align="right"><a href="{% url 'history_url' %}">History</a></td>
                 </tr>
                 {% if user.is_staff %}
                     <tr>

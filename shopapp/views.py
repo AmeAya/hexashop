@@ -37,6 +37,8 @@ def homeView(request):
 
     try:
         mens = Product.objects.filter(gender=Gender.objects.get(name='Men')).order_by('-id')[:10]
+        for elem in mens:
+            print(elem.id)
         womens = Product.objects.filter(gender=Gender.objects.get(name='Women')).order_by('-id')[:10]
         kids = Product.objects.filter(gender=Gender.objects.get(name='Kid')).order_by('-id')[:10]
         context.update({'mens': mens})
@@ -603,3 +605,73 @@ def ticketDetailView(request, id):
             ticket.is_open = bool(int(is_open))
             ticket.save()
         return redirect('tickets_url')
+
+
+def checkoutView(request):
+    links = [
+        {'name': 'home', 'url': 'home_url', 'active': ''},
+        {'name': 'men', 'url': 'men_url', 'active': ''},
+        {'name': 'women', 'url': 'women_url', 'active': ''},
+        {'name': 'kid', 'url': 'kid_url', 'active': ''},
+        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+        {'name': 'about', 'url': 'about_url', 'active': ''},
+        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
+        {'name': 'profile', 'url': 'profile_url', 'active': ''},
+        {'name': 'logout', 'url': 'logout_url', 'active': ''},
+    ]
+
+    cart = Cart(request).cart
+    total = 0
+    for key, value in cart.items():
+        total += int(value.get('price'))
+
+    context = {
+        'links': links,
+        'total': total
+    }
+    return render(request, template_name='checkout.html', context=context)
+
+
+def buyView(request):
+    if not request.user.is_authenticated:
+        return redirect('login_url')
+
+    cart = Cart(request).cart
+    total = 0
+    order = Order(customer=request.user, total=total, status='Accepted')
+    order.save()
+    for key, value in cart.items():
+        product = Product.objects.get(id=key)
+        quantity = int(value.get('quantity'))
+        item = OrderItem(product=product, quantity=quantity, total=int(product.price) * quantity)
+        item.save()
+        order.items.add(item)
+        order.save()
+        total += int(value.get('price'))
+    order.total = total
+    order.save()
+    cart.clear()
+    return redirect('profile_url')
+
+
+def historyView(request):
+    if not request.user.is_authenticated:
+        return redirect('login_url')
+
+    links = [
+        {'name': 'home', 'url': 'home_url', 'active': ''},
+        {'name': 'men', 'url': 'men_url', 'active': ''},
+        {'name': 'women', 'url': 'women_url', 'active': ''},
+        {'name': 'kid', 'url': 'kid_url', 'active': ''},
+        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+        {'name': 'about', 'url': 'about_url', 'active': ''},
+        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
+        {'name': 'profile', 'url': 'profile_url', 'active': ''},
+        {'name': 'logout', 'url': 'logout_url', 'active': ''},
+    ]
+    orders = Order.objects.filter(customer=request.user)
+    context = {
+        'links': links,
+        'orders': orders
+    }
+    return render(request, template_name='history.html', context=context)
