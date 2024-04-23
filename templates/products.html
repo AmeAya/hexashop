@@ -22,12 +22,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-heading">
+                    <div class="section-heading" style="margin-bottom: 20px;">
                         <h2>Our Latest Products</h2>
                         <span>Check out all of our products.</span>
                     </div>
                 </div>
             </div>
+        </div>
+        <div align="center" style="margin-bottom: 20px;">
+            <select onchange="filterProducts()" id="category_select">
+                {% if selected_category == 'All' %}
+                    <option selected>All</option>
+                {% else %}
+                    <option>All</option>
+                {% endif %}
+                {% for category in categories %}
+                    {% if selected_category == category.name %}
+                        <option value="{{ category.pk }}" selected>{{ category.name }}</option>
+                    {% else %}
+                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
         </div>
         <div class="container">
             <div class="row">
@@ -81,6 +97,13 @@
     </section>
     <!-- ***** Products Area Ends ***** -->
     <script>
+        function filterProducts() {
+            let category_select = document.getElementById('category_select');
+            if (category_select.value) {
+                window.location.href = window.location.href.split('?')[0] + '?category=' + category_select.value;
+            }
+        };
+
         function addFavourite(product_id) {
             let Request = new XMLHttpRequest();
 

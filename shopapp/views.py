@@ -110,6 +110,17 @@ def menView(request):
         links.append({'name': 'login', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Men'))
+    categories = set()
+    for product in products:
+        categories.add(product.category)
+
+    selected_category = 'All'
+    if 'category' in request.GET:
+        if request.GET.get('category') != 'All':
+            category = Category.objects.get(id=request.GET.get('category'))
+            selected_category = category.name
+            products = products.filter(category=category)
+
     paginator = Paginator(products, 9)
     page_num = request.GET.get('page')
     try:
@@ -139,7 +150,9 @@ def menView(request):
     context = {
         'links': links,
         'pages': pages,
-        'products': page_obj
+        'products': page_obj,
+        'categories': categories,
+        'selected_category': selected_category
     }
 
     return render(request, template_name='products.html', context=context)
@@ -162,6 +175,17 @@ def womenView(request):
         links.append({'name': 'login', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Women'))
+    categories = set()
+    for product in products:
+        categories.add(product.category)
+
+    selected_category = 'All'
+    if 'category' in request.GET:
+        if request.GET.get('category') != 'All':
+            category = Category.objects.get(id=request.GET.get('category'))
+            selected_category = category.name
+            products = products.filter(category=category)
+
     paginator = Paginator(products, 9)
     page_num = request.GET.get('page')
     try:
@@ -191,7 +215,9 @@ def womenView(request):
     context = {
         'links': links,
         'pages': pages,
-        'products': page_obj
+        'products': page_obj,
+        'categories': categories,
+        'selected_category': selected_category
     }
 
     return render(request, template_name='products.html', context=context)
@@ -214,6 +240,17 @@ def kidView(request):
         links.append({'name': 'login', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Kid'))
+    categories = set()
+    for product in products:
+        categories.add(product.category)
+
+    selected_category = 'All'
+    if 'category' in request.GET:
+        if request.GET.get('category') != 'All':
+            category = Category.objects.get(id=request.GET.get('category'))
+            selected_category = category.name
+            products = products.filter(category=category)
+
     paginator = Paginator(products, 9)
     page_num = request.GET.get('page')
     try:
@@ -243,7 +280,9 @@ def kidView(request):
     context = {
         'links': links,
         'pages': pages,
-        'products': page_obj
+        'products': page_obj,
+        'categories': categories,
+        'selected_category': selected_category
     }
 
     return render(request, template_name='products.html', context=context)
@@ -266,6 +305,17 @@ def accessoryView(request):
         links.append({'name': 'login', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Accessory'))
+    categories = set()
+    for product in products:
+        categories.add(product.category)
+
+    selected_category = 'All'
+    if 'category' in request.GET:
+        if request.GET.get('category') != 'All':
+            category = Category.objects.get(id=request.GET.get('category'))
+            selected_category = category.name
+            products = products.filter(category=category)
+
     paginator = Paginator(products, 9)
     page_num = request.GET.get('page')
     try:
@@ -295,7 +345,9 @@ def accessoryView(request):
     context = {
         'links': links,
         'pages': pages,
-        'products': page_obj
+        'products': page_obj,
+        'categories': categories,
+        'selected_category': selected_category
     }
 
     return render(request, template_name='products.html', context=context)
