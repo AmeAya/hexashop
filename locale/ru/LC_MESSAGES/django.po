@@ -22,23 +22,23 @@ msgstr ""
 
 #: core/settings.py:18
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: core/settings.py:19
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: shopapp/models.py:34 shopapp/models.py:45 shopapp/models.py:67
 msgid "name"
-msgstr ""
+msgstr "название"
 
 #: shopapp/models.py:68
 msgid "description"
-msgstr ""
+msgstr "описание"
 
 #: templates/about.html:10
 msgid "About Our Company"
-msgstr ""
+msgstr "О нашей компании"
 
 #: templates/about.html:11 templates/contact.html:11
 msgid "Awesome, clean &amp; creative HTML5 Template"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: templates/about.html:30
 msgid "About Us &amp; Our Skills"
-msgstr ""
+msgstr "О нас. Наши навыки"
 
 #: templates/about.html:31
 msgid ""
@@ -69,7 +69,7 @@ msgstr ""
 
 #: templates/about.html:55
 msgid "Our Amazing Team"
-msgstr ""
+msgstr "Наша невероятная команда"
 
 #: templates/about.html:56 templates/about.html:134 templates/about.html:170
 #: templates/contact.html:33 templates/contact.html:71 templates/index.html:120
@@ -77,15 +77,15 @@ msgstr ""
 #: templates/index.html:425
 msgid ""
 "Details to details is what makes Hexashop different from the other themes."
-msgstr ""
+msgstr "Детали к деталям — вот что отличает Hexashop от других тем."
 
 #: templates/about.html:76 templates/about.html:97 templates/about.html:118
 msgid "Product Caretaker"
-msgstr ""
+msgstr "Основатель Продукта"
 
 #: templates/about.html:133
 msgid "Our Services"
-msgstr ""
+msgstr "Наши Сервисы"
 
 #: templates/about.html:139
 msgid "Synther Vaporware"
@@ -106,66 +106,65 @@ msgid "Health Gothfam"
 msgstr ""
 
 #: templates/about.html:169 templates/contact.html:70 templates/index.html:424
-#, python-format
-msgid "By Subscribing To Our Newsletter You Can Get 30%% Off"
-msgstr ""
+msgid "By Subscribing To Our Newsletter You Can Get 30% Off"
+msgstr "Подписавшись на нашу рассылку, вы можете получить скидку 30%"
 
 #: templates/about.html:196 templates/contact.html:97 templates/index.html:453
 msgid "Store Location:"
-msgstr ""
+msgstr "Местоположение Магазина:"
 
 #: templates/about.html:197 templates/contact.html:98 templates/index.html:454
 msgid "Phone:"
-msgstr ""
+msgstr "Телефон:"
 
 #: templates/about.html:198 templates/contact.html:99 templates/index.html:455
 msgid "Office Location:"
-msgstr ""
+msgstr "Расположение офиса:"
 
 #: templates/about.html:203 templates/contact.html:104 templates/index.html:460
 msgid "Work Hours:"
-msgstr ""
+msgstr "Рабочие часы:"
 
 #: templates/about.html:204 templates/contact.html:105 templates/index.html:461
 #: templates/profile.html:8
 msgid "Email:"
-msgstr ""
+msgstr "Электронная почта:"
 
 #: templates/about.html:205 templates/contact.html:106 templates/index.html:462
 msgid "Social Media:"
-msgstr ""
+msgstr "Социальные сети:"
 
 #: templates/base.html:104
 msgid "Shopping &amp; Categories"
-msgstr ""
+msgstr "Категории"
 
 #: templates/base.html:106
 msgid "Men’s Shopping"
-msgstr ""
+msgstr "Мужская одежда"
 
 #: templates/base.html:107
 msgid "Women’s Shopping"
-msgstr ""
+msgstr "Женская одежда"
 
 #: templates/base.html:108
 msgid "Kid's Shopping"
-msgstr ""
+msgstr "Детская одежда"
 
 #: templates/base.html:112
 msgid "Useful Links"
-msgstr ""
+msgstr "Полезные ссылки"
 
 #: templates/base.html:114
 msgid "Homepage"
-msgstr ""
+msgstr "Домашняя страница"
 
 #: templates/base.html:115
 msgid "About Us"
-msgstr ""
+msgstr "О нас"
 
 #: templates/base.html:116 templates/base.html:123
 msgid "Help"
-msgstr ""
+msgstr "Помощь"
 
 #: templates/base.html:117 templates/contact.html:10
 msgid "Contact Us"
@@ -173,143 +172,143 @@ msgstr ""
 
 #: templates/base.html:121
 msgid "Help &amp; Information"
-msgstr ""
+msgstr "Полезная информация"
 
 #: templates/base.html:124
 msgid "FAQ's"
-msgstr ""
+msgstr "Вопросы и Ответы"
 
 #: templates/base.html:125
 msgid "Shipping"
-msgstr ""
+msgstr "Доставка"
 
 #: templates/base.html:126
 msgid "Tracking ID"
-msgstr ""
+msgstr "Отслеживание заказа"
 
 #: templates/base.html:131
 msgid "Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved."
-msgstr ""
+msgstr "Copyright © 2022 HexaShop Co., Ltd. Все права защищены."
 
 #: templates/base.html:132
 msgid "Design:"
-msgstr ""
+msgstr "Дизайн:"
 
 #: templates/cart_detail.html:7
 msgid "Cart Detail:"
-msgstr ""
+msgstr "Корзина:"
 
 #: templates/cart_detail.html:10
 msgid "Product:"
-msgstr ""
+msgstr "Товар:"
 
 #: templates/cart_detail.html:11
 msgid "Price:"
-msgstr ""
+msgstr "Цена:"
 
 #: templates/cart_detail.html:12
 msgid "Image:"
-msgstr ""
+msgstr "Изображение:"
 
 #: templates/cart_detail.html:13
 msgid "Action:"
-msgstr ""
+msgstr "Действие:"
 
 #: templates/cart_detail.html:28
 msgid "Total Products:"
-msgstr ""
+msgstr "Общее кол-во:"
 
 #: templates/cart_detail.html:29
 msgid "Total Price:"
-msgstr ""
+msgstr "Финальная цена:"
 
 #: templates/cart_detail.html:30
 msgid "Checkout"
-msgstr ""
+msgstr "К оплате"
 
 #: templates/checkout.html:12
 msgid "Person Name"
-msgstr ""
+msgstr "Имя Владельца"
 
 #: templates/checkout.html:18
 msgid "Card Number"
-msgstr ""
+msgstr "Номер Карты"
 
 #: templates/checkout.html:24
 msgid "Expiry"
-msgstr ""
+msgstr "Срок действия"
 
 #: templates/checkout.html:35
 msgid "Delivery"
-msgstr ""
+msgstr "Доставка"
 
 #: templates/checkout.html:41
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 #: templates/checkout.html:47
 msgid "City"
-msgstr ""
+msgstr "Город"
 
 #: templates/checkout.html:53
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #: templates/checkout.html:59
 msgid "ZIP"
-msgstr ""
+msgstr "Индекс"
 
 #: templates/checkout.html:66
 msgid "Pay"
-msgstr ""
+msgstr "Оплатить"
 
 #: templates/contact.html:32
 msgid "Say Hello. Don't Be Shy!"
-msgstr ""
+msgstr "Напишите нам"
 
 #: templates/history.html:7
 msgid "Order History:"
-msgstr ""
+msgstr "История заказов:"
 
 #: templates/history.html:10
 msgid "Id:"
-msgstr ""
+msgstr "Id:"
 
 #: templates/history.html:11
 msgid "Items:"
-msgstr ""
+msgstr "Предметы:"
 
 #: templates/history.html:12 templates/product_detail.html:26
 msgid "Total:"
-msgstr ""
+msgstr "Сумма:"
 
 #: templates/history.html:13
 msgid "Datetime:"
-msgstr ""
+msgstr "Время:"
 
 #: templates/history.html:14 templates/ticket_detail.html:6
 msgid "Status:"
-msgstr ""
+msgstr "Статус:"
 
 #: templates/index.html:12
 msgid "We Are Hexashop"
-msgstr ""
+msgstr "Мы Hexashop"
 
 #: templates/index.html:13
 msgid "Awesome, clean &amp; creative shop"
-msgstr ""
+msgstr "Потрясающий, оригинальный магазин"
 
 #: templates/index.html:15
 msgid "Purchase Now!"
-msgstr ""
+msgstr "Купить Сейчас!"
 
 #: templates/index.html:29 templates/index.html:34
 msgid "Women"
-msgstr ""
+msgstr "Для Женщин"
 
 #: templates/index.html:30
 msgid "Best Clothes For Women"
-msgstr ""
+msgstr "Лучшая одежда для женщин"
 
 #: templates/index.html:35 templates/index.html:55 templates/index.html:75
 #: templates/index.html:95
@@ -319,172 +318,172 @@ msgstr ""
 #: templates/index.html:37 templates/index.html:57 templates/index.html:77
 #: templates/index.html:97
 msgid "Discover More"
-msgstr ""
+msgstr "Изучить больше"
 
 #: templates/index.html:49 templates/index.html:54
 msgid "Men"
-msgstr ""
+msgstr "Для Мужчин"
 
 #: templates/index.html:50
 msgid "Best Clothes For Men"
-msgstr ""
+msgstr "Лучшая одежда для мужчин"
 
 #: templates/index.html:69 templates/index.html:74
 msgid "Kids"
-msgstr ""
+msgstr "Для детей"
 
 #: templates/index.html:70
 msgid "Best Clothes For Kids"
-msgstr ""
+msgstr "Лучшая одежда для детей"
 
 #: templates/index.html:89 templates/index.html:94
 msgid "Accessories"
-msgstr ""
+msgstr "Акссесуары"
 
 #: templates/index.html:90
 msgid "Best Trend Accessories"
-msgstr ""
+msgstr "Лучшие трендовые акссесуары"
 
 #: templates/index.html:119
 msgid "Men's Latest"
-msgstr ""
+msgstr "Мужские новинки"
 
 #: templates/index.html:174
 msgid "Women's Latest"
-msgstr ""
+msgstr "Женские новинки"
 
 #: templates/index.html:229
 msgid "Kid's Latest"
-msgstr ""
+msgstr "Детские новинки"
 
 #: templates/index.html:284
 msgid "Explore Our Products"
-msgstr ""
+msgstr "Изучите наши продукты"
 
 #: templates/index.html:305
 msgid "Leather Bags"
-msgstr ""
+msgstr "Кожанные сумки"
 
 #: templates/index.html:306
 msgid "Latest Collection"
-msgstr ""
+msgstr "Последняя коллекция"
 
 #: templates/index.html:321
 msgid "Different Types"
-msgstr ""
+msgstr "Разные виды"
 
 #: templates/index.html:322
 msgid "Over 304 Products"
-msgstr ""
+msgstr "Более 304 продуктов"
 
 #: templates/index.html:339
 msgid "Social Media"
-msgstr ""
+msgstr "Социальные сети"
 
 #: templates/index.html:351
 msgid "Fashion"
-msgstr ""
+msgstr "Мода"
 
 #: templates/index.html:362
 msgid "New"
-msgstr ""
+msgstr "Новинки"
 
 #: templates/index.html:373
 msgid "Brand"
-msgstr ""
+msgstr "Брэнды"
 
 #: templates/index.html:384
 msgid "Makeup"
-msgstr ""
+msgstr "Макияж"
 
 #: templates/index.html:395
 msgid "Leather"
-msgstr ""
+msgstr "Кожа"
 
 #: templates/index.html:406
 msgid "Bag"
-msgstr ""
+msgstr "Сумки"
 
 #: templates/login.html:20
 msgid "Not registered?"
-msgstr ""
+msgstr "Все еще не зарегистрированы?"
 
 #: templates/login.html:20
 msgid "Create an account"
-msgstr ""
+msgstr "Создать аккаунт"
 
 #: templates/product_detail.html:28
 msgid "Add To Cart"
-msgstr ""
+msgstr "Добавить в корзину"
 
 #: templates/products.html:10
 msgid "Check Our Products"
-msgstr ""
+msgstr "Посмотреть наши продукты"
 
 #: templates/products.html:11
 msgid "Awesome &amp; Creative Shop"
-msgstr ""
+msgstr "Невероятный, оригинальный магазин"
 
 #: templates/products.html:26
 msgid "Our Latest Products"
-msgstr ""
+msgstr "Наши последние продукты"
 
 #: templates/products.html:27
 msgid "Check out all of our products."
-msgstr ""
+msgstr "Изучите все наши продукты"
 
 #: templates/products.html:35 templates/products.html:37
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 #: templates/products.html:82
 msgid "Sorry, there are temporary no products!"
-msgstr ""
+msgstr "Просим прощения, пока что тут нету продуктов!"
 
 #: templates/profile.html:12
 msgid "First Name:"
-msgstr ""
+msgstr "Имя:"
 
 #: templates/profile.html:16
 msgid "Last Name:"
-msgstr ""
+msgstr "Фамилия:"
 
 #: templates/profile.html:20
 msgid "Date Joined:"
-msgstr ""
+msgstr "Дата регистрации:"
 
 #: templates/profile.html:24
 msgid "My Favourites"
-msgstr ""
+msgstr "Избранные"
 
 #: templates/profile.html:25
 msgid "History"
-msgstr ""
+msgstr "История"
 
 #: templates/profile.html:29
 msgid "Show Tickets"
-msgstr ""
+msgstr "Показать тикеты"
 
 #: templates/ticket_detail.html:8
 msgid "Open"
-msgstr ""
+msgstr "Открыт"
 
 #: templates/ticket_detail.html:10
 msgid "Closed"
-msgstr ""
+msgstr "Закрыт"
 
 #: templates/tickets.html:8
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: templates/tickets.html:9
 msgid "Email"
-msgstr ""
+msgstr "Электронная почта"
 
 #: templates/tickets.html:10
 msgid "Date and Time"
-msgstr ""
+msgstr "Дата и время"
 
 #: templates/tickets.html:11
 msgid "Action"
-msgstr ""
+msgstr "Действия"
