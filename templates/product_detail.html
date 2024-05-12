@@ -23,9 +23,9 @@
                         <i class="fa fa-quote-left"></i><p>{{ product.brand.name }}</p>
                     </div>
                     <div class="total">
-                        <h4>Total: ${{ product.price }}</h4>
+                        <h4>{% trans "Total:"%} ${{ product.price }}</h4>
                         <div class="main-border-button">
-                            <a onclick="addCart(this.id)" id="{{ product.id }}">Add To Cart</a>
+                            <a onclick="addCart(this.id)" id="{{ product.id }}">{% trans "Add To Cart" %}</a>
                         </div>
                     </div>
                 </div>

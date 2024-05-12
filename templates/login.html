@@ -17,7 +17,7 @@
                 {% if error %}
                     <p style="color: red;">{{ error }}</p>
                 {% endif %}
-                <p>Not registered? <a href="{% url 'register_url' %}">Create an account</a></p>
+                <p>{% trans "Not registered?" %} <a href="{% url 'register_url' %}">{% trans "Create an account" %}</a></p>
             </form>
         </div>
     </div>

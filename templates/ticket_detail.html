@@ -3,11 +3,11 @@
 {% block content %}
     <div class="page-heading about-page-heading" id="top" style="background: none">
         <div class="container">
-            <h4 style="display: inline">Status: </h4>
+            <h4 style="display: inline">{% trans "Status:" %} </h4>
             {% if ticket.is_open %}
-                <h4 style="color: #008000; display: inline">Open</h4>
+                <h4 style="color: #008000; display: inline">{% trans "Open" %}</h4>
             {% else %}
-                <h4 style="color: #ff0000; display: inline">Closed</h4>
+                <h4 style="color: #ff0000; display: inline">{% trans "Closed" %}</h4>
             {% endif %}
             <br>
             <br>

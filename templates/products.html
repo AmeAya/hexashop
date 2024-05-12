@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>Check Our Products</h2>
-                        <span>Awesome &amp; Creative Shop</span>
+                        <h2>{% trans "Check Our Products" %}</h2>
+                        <span>{% trans "Awesome &amp; Creative Shop" %}</span>
                     </div>
                 </div>
             </div>
@@ -23,8 +23,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading" style="margin-bottom: 20px;">
-                        <h2>Our Latest Products</h2>
-                        <span>Check out all of our products.</span>
+                        <h2>{% trans "Our Latest Products" %}</h2>
+                        <span>{% trans "Check out all of our products." %}</span>
                     </div>
                 </div>
             </div>
@@ -32,9 +32,9 @@
         <div align="center" style="margin-bottom: 20px;">
             <select onchange="filterProducts()" id="category_select">
                 {% if selected_category == 'All' %}
-                    <option selected>All</option>
+                    <option selected>{% trans "All" %}</option>
                 {% else %}
-                    <option>All</option>
+                    <option>{% trans "All" %}</option>
                 {% endif %}
                 {% for category in categories %}
                     {% if selected_category == category.name %}
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 {% empty %}
-                    <h3>Sorry, there are temporary no products!</h3>
+                    <h3>{% trans "Sorry, there are temporary no products!" %}</h3>
                 {% endfor %}
                 <div class="col-lg-12">
                     <div class="pagination">

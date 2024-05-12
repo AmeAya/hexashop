@@ -4,13 +4,13 @@
 {% block content %}
     <div class="page-heading" style="background: none">
         <div class="container" align="center">
-            <h3 align="center">Cart Detail:</h3>
+            <h3 align="center">{% trans "Cart Detail:" %}</h3>
             <table style="width: 80vw;">
                 <tr>
-                    <th>Product:</th>
-                    <th>Price:</th>
-                    <th>Image:</th>
-                    <th>Action:</th>
+                    <th>{% trans "Product:" %}</th>
+                    <th>{% trans "Price:" %}</th>
+                    <th>{% trans "Image:" %}</th>
+                    <th>{% trans "Action:" %}</th>
                 </tr>
                 {% for key,value in request.session.cart.items %}
                 <tr>
@@ -25,9 +25,9 @@
                 </tr>
                 {% endfor %}
             </table>
-            <h6 align="left">Total Products: {{ request.session.cart | length }}</h6>
-            <h3 align="left">Total Price: ${{ total }}</h3>
-            <button class="btn btn-outline-secondary" onclick="location.href='{% url 'checkout_url' %}'">Checkout</button>
+            <h6 align="left">{% trans "Total Products:" %} {{ request.session.cart | length }}</h6>
+            <h3 align="left">{% trans "Total Price:" %} ${{ total }}</h3>
+            <button class="btn btn-outline-secondary" onclick="location.href='{% url 'checkout_url' %}'">{% trans "Checkout" %}</button>
         </div>
     </div>
 {% endblock content %}

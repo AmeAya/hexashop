@@ -4,14 +4,14 @@
 {% block content %}
     <div class="page-heading" style="background: none">
         <div class="container" align="center">
-            <h3 align="center">Order History:</h3>
+            <h3 align="center">{% trans "Order History:" %}</h3>
             <table style="width: 80vw; border-collapse: separate; border-spacing: 20px;">
                 <tr>
-                    <th>Id:</th>
-                    <th>Items:</th>
-                    <th>Total:</th>
-                    <th>Datetime:</th>
-                    <th>Status:</th>
+                    <th>{% trans "Id:" %}</th>
+                    <th>{% trans "Items:" %}</th>
+                    <th>{% trans "Total:" %}</th>
+                    <th>{% trans "Datetime:" %}</th>
+                    <th>{% trans "Status:" %}</th>
                 </tr>
                 {% for order in orders %}
                     <tr>
