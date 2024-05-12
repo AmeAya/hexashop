@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.utils.translation import gettext_lazy as _
 
 from .managers import CustomUserManager
 
@@ -30,7 +31,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Gender(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(_('name'), max_length=255)
 
     class Meta:
         verbose_name = 'Gender'
@@ -41,7 +42,7 @@ class Gender(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(_('name'), max_length=255)
 
     class Meta:
         verbose_name = 'Category'
@@ -63,8 +64,8 @@ class Brand(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
+    name = models.CharField(_('name'), max_length=255)
+    description = models.TextField(_('description'))
     thumb = models.ImageField(upload_to='thumbs/')
     images = models.ManyToManyField('ProductImage')
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE)
