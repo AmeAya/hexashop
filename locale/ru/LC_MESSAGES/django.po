@@ -157,11 +157,11 @@ msgstr "Социальные сети:"
 
 #: .\templates\base.html:61
 msgid "Cart"
-msgstr ""
+msgstr "Корзина"
 
 #: .\templates\base.html:66
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: .\templates\base.html:122
 msgid "Shopping &amp; Categories"
@@ -197,7 +197,7 @@ msgstr "Помощь"
 
 #: .\templates\base.html:135 .\templates\contact.html:11
 msgid "Contact Us"
-msgstr ""
+msgstr "Контакты"
 
 #: .\templates\base.html:139
 msgid "Help &amp; Information"
@@ -342,7 +342,7 @@ msgstr "Лучшая одежда для женщин"
 #: .\templates\index.html:36 .\templates\index.html:56
 #: .\templates\index.html:76 .\templates\index.html:96
 msgid "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
-msgstr ""
+msgstr "Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid."
 
 #: .\templates\index.html:38 .\templates\index.html:58
 #: .\templates\index.html:78 .\templates\index.html:98
