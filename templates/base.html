@@ -1,5 +1,8 @@
 {% load static %}
 {% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as AVAILABLE_LANGUAGES %}
+{% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +40,7 @@
 
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
-    <div class="container" style="margin-left: 200px; max-width: 70vw">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
@@ -55,27 +58,22 @@
                         {% endfor %}
                         <li class="scroll-to-section">
                             <a href="{% url 'cart_detail' %}">
-                                Cart
+                                {% trans "Cart" %}
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li>
-                            {% get_current_language as CURRENT_LANGUAGE %}
-                            {% get_available_languages as AVAILABLE_LANGUAGES %}
-                            {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
-                            <div class="languages">
-                                <p>{% trans "Language" %}:</p>
-                                <ul class="languages">
-                                    {% for language in languages %}
-                                        <li>
-                                            <a href="/{{ language.code }}/"
-                                                {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
-                                                {{ language.name_local }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
+                        <li class="submenu">
+                             <a href="javascript:;">{% trans "Language" %}:</a>
+                            <ul>
+                                {% for language in languages %}
+                                    <li>
+                                        <a href="/{{ language.code }}/"
+                                            {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
+                                            {{ language.name_local }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </li>
                     </ul>
 
@@ -132,9 +130,9 @@
                 <h4>{% trans "Useful Links" %}</h4>
                 <ul>
                     <li><a href="{% url 'home_url' %}">{% trans "Homepage" %}</a></li>
-                    <li><a href="{% url 'men_url' %}">{% trans "About Us" %}</a></li>
-                    <li><a href="{% url 'women_url' %}">{% trans "Help" %}</a></li>
-                    <li><a href="{% url 'kid_url' %}">{% trans "Contact Us" %}</a></li>
+                    <li><a href="{% url 'about_url' %}">{% trans "About Us" %}</a></li>
+                    <li><a href="{% url 'home_url' %}">{% trans "Help" %}</a></li>
+                    <li><a href="{% url 'contact_url' %}">{% trans "Contact Us" %}</a></li>
                 </ul>
             </div>
             <div class="col-lg-3">

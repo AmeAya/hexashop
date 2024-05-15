@@ -16,21 +16,32 @@ from cart.cart import Cart
 
 
 def homeView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': 'active'},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
-
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
     context = {
         'links': links
     }
@@ -50,20 +61,32 @@ def homeView(request):
 
 
 def aboutView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': 'active'},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     context = {
         'links': links
@@ -72,20 +95,32 @@ def aboutView(request):
 
 
 def contactView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': 'active'},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            {'name': 'contact us', 'url': 'contact_url', 'active': 'active'},
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            {'name': 'Контакты', 'url': 'contact_url', 'active': 'active'},
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     context = {
         'links': links
@@ -94,20 +129,32 @@ def contactView(request):
 
 
 def menView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': 'active'},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': 'active'},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': 'active'},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Men'))
     categories = set()
@@ -159,20 +206,32 @@ def menView(request):
 
 
 def womenView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': 'active'},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': 'active'},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': 'active'},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Women'))
     categories = set()
@@ -224,20 +283,32 @@ def womenView(request):
 
 
 def kidView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': 'active'},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': 'active'},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': 'active'},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Kid'))
     categories = set()
@@ -289,20 +360,32 @@ def kidView(request):
 
 
 def accessoryView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': 'active'},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': 'active'},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': 'active'},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     products = Product.objects.filter(gender=Gender.objects.get(name='Accessory'))
     categories = set()
@@ -354,20 +437,32 @@ def accessoryView(request):
 
 
 def productDetailView(request, pk):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-    ]
-    if request.user.is_authenticated:
-        links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
-        links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'profile', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'logout', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'login', 'url': 'login_url', 'active': ''})
     else:
-        links.append({'name': 'login', 'url': 'login_url', 'active': ''})
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+        ]
+        if request.user.is_authenticated:
+            links.append({'name': 'Профиль', 'url': 'profile_url', 'active': ''})
+            links.append({'name': 'Выход', 'url': 'logout_url', 'active': ''})
+        else:
+            links.append({'name': 'Вход', 'url': 'login_url', 'active': ''})
 
     product = get_object_or_404(Product, id=pk)
     context = {
@@ -382,16 +477,25 @@ def loginView(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
             return redirect('profile_url')
-        links = [
-            {'name': 'home', 'url': 'home_url', 'active': ''},
-            {'name': 'men', 'url': 'men_url', 'active': ''},
-            {'name': 'women', 'url': 'women_url', 'active': ''},
-            {'name': 'kid', 'url': 'kid_url', 'active': ''},
-            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-            {'name': 'about', 'url': 'about_url', 'active': ''},
-            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-            {'name': 'login', 'url': 'login_url', 'active': 'active'}
-        ]
+        if request.LANGUAGE_CODE == 'en':
+            links = [
+                {'name': 'men', 'url': 'men_url', 'active': ''},
+                {'name': 'women', 'url': 'women_url', 'active': ''},
+                {'name': 'kid', 'url': 'kid_url', 'active': ''},
+                {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'login', 'url': 'login_url', 'active': ''}
+            ]
+        else:
+            links = [
+                {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+                {'name': 'Женский', 'url': 'women_url', 'active': ''},
+                {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+                {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'Вход', 'url': 'login_url', 'active': ''}
+            ]
+
         context = {
             'links': links,
             'error': request.session.get('error')
@@ -419,17 +523,26 @@ def logoutView(request):
 
 def profileView(request):
     if request.user.is_authenticated:
-        links = [
-            {'name': 'home', 'url': 'home_url', 'active': ''},
-            {'name': 'men', 'url': 'men_url', 'active': ''},
-            {'name': 'women', 'url': 'women_url', 'active': ''},
-            {'name': 'kid', 'url': 'kid_url', 'active': ''},
-            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-            {'name': 'about', 'url': 'about_url', 'active': ''},
-            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-            {'name': 'profile', 'url': 'profile_url', 'active': 'active'},
-            {'name': 'logout', 'url': 'logout_url', 'active': ''}
-        ]
+        if request.LANGUAGE_CODE == 'en':
+            links = [
+                {'name': 'men', 'url': 'men_url', 'active': ''},
+                {'name': 'women', 'url': 'women_url', 'active': ''},
+                {'name': 'kid', 'url': 'kid_url', 'active': ''},
+                {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'logout', 'url': 'logout_url', 'active': ''},
+                {'name': 'profile', 'url': 'profile_url', 'active': 'active'}
+            ]
+        else:
+            links = [
+                {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+                {'name': 'Женский', 'url': 'women_url', 'active': ''},
+                {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+                {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+                {'name': 'Профиль', 'url': 'profile_url', 'active': 'active'}
+            ]
         context = {
             'links': links
         }
@@ -439,17 +552,26 @@ def profileView(request):
 
 def favouritesView(request):
     if request.user.is_authenticated:
-        links = [
-            {'name': 'home', 'url': 'home_url', 'active': ''},
-            {'name': 'men', 'url': 'men_url', 'active': ''},
-            {'name': 'women', 'url': 'women_url', 'active': ''},
-            {'name': 'kid', 'url': 'kid_url', 'active': ''},
-            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-            {'name': 'about', 'url': 'about_url', 'active': ''},
-            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-            {'name': 'profile', 'url': 'profile_url', 'active': ''},
-            {'name': 'logout', 'url': 'logout_url', 'active': ''}
-        ]
+        if request.LANGUAGE_CODE == 'en':
+            links = [
+                {'name': 'men', 'url': 'men_url', 'active': ''},
+                {'name': 'women', 'url': 'women_url', 'active': ''},
+                {'name': 'kid', 'url': 'kid_url', 'active': ''},
+                {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'logout', 'url': 'logout_url', 'active': ''},
+                {'name': 'profile', 'url': 'profile_url', 'active': ''}
+            ]
+        else:
+            links = [
+                {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+                {'name': 'Женский', 'url': 'women_url', 'active': ''},
+                {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+                {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+                {'name': 'Профиль', 'url': 'profile_url', 'active': ''}
+            ]
         context = {
             'links': links,
             'products': request.user.favourites.all()
@@ -463,16 +585,24 @@ def registerView(request):
         return redirect('home_url')
 
     if request.method == 'GET':
-        links = [
-            {'name': 'home', 'url': 'home_url', 'active': ''},
-            {'name': 'men', 'url': 'men_url', 'active': ''},
-            {'name': 'women', 'url': 'women_url', 'active': ''},
-            {'name': 'kid', 'url': 'kid_url', 'active': ''},
-            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-            {'name': 'about', 'url': 'about_url', 'active': ''},
-            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-            {'name': 'login', 'url': 'login_url', 'active': ''}
-        ]
+        if request.LANGUAGE_CODE == 'en':
+            links = [
+                {'name': 'men', 'url': 'men_url', 'active': ''},
+                {'name': 'women', 'url': 'women_url', 'active': ''},
+                {'name': 'kid', 'url': 'kid_url', 'active': ''},
+                {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'logout', 'url': 'logout_url', 'active': ''},
+            ]
+        else:
+            links = [
+                {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+                {'name': 'Женский', 'url': 'women_url', 'active': ''},
+                {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+                {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+            ]
         context = {
             'links': links,
             'error': request.session.get('error')
@@ -567,17 +697,26 @@ def cart_clear(request):
 @login_required(login_url="login_url")
 def cart_detail(request):
     cart = Cart(request)
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-        {'name': 'profile', 'url': 'profile_url', 'active': ''},
-        {'name': 'logout', 'url': 'logout_url', 'active': ''},
-    ]
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+            {'name': 'logout', 'url': 'logout_url', 'active': ''},
+            {'name': 'profile', 'url': 'profile_url', 'active': ''}
+        ]
+    else:
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+            {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+            {'name': 'Профиль', 'url': 'profile_url', 'active': ''}
+        ]
 
     total = 0
     for key, value in cart.cart.items():
@@ -597,17 +736,26 @@ def ticketView(request):
             return redirect('login_url')
         if not request.user.is_staff:
             return redirect('home_url')
-        links = [
-            {'name': 'home', 'url': 'home_url', 'active': ''},
-            {'name': 'men', 'url': 'men_url', 'active': ''},
-            {'name': 'women', 'url': 'women_url', 'active': ''},
-            {'name': 'kid', 'url': 'kid_url', 'active': ''},
-            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-            {'name': 'about', 'url': 'about_url', 'active': ''},
-            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-            {'name': 'profile', 'url': 'profile_url', 'active': ''},
-            {'name': 'logout', 'url': 'logout_url', 'active': ''},
-        ]
+        if request.LANGUAGE_CODE == 'en':
+            links = [
+                {'name': 'men', 'url': 'men_url', 'active': ''},
+                {'name': 'women', 'url': 'women_url', 'active': ''},
+                {'name': 'kid', 'url': 'kid_url', 'active': ''},
+                {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'logout', 'url': 'logout_url', 'active': ''},
+                {'name': 'profile', 'url': 'profile_url', 'active': ''}
+            ]
+        else:
+            links = [
+                {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+                {'name': 'Женский', 'url': 'women_url', 'active': ''},
+                {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+                {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+                {'name': 'Профиль', 'url': 'profile_url', 'active': ''}
+            ]
         tickets = Ticket.objects.filter(is_open=True)
         context = {
             'links': links,
@@ -633,17 +781,26 @@ def ticketView(request):
 
 def ticketDetailView(request, id):
     if request.method == 'GET':
-        links = [
-            {'name': 'home', 'url': 'home_url', 'active': ''},
-            {'name': 'men', 'url': 'men_url', 'active': ''},
-            {'name': 'women', 'url': 'women_url', 'active': ''},
-            {'name': 'kid', 'url': 'kid_url', 'active': ''},
-            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-            {'name': 'about', 'url': 'about_url', 'active': ''},
-            {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-            {'name': 'profile', 'url': 'profile_url', 'active': ''},
-            {'name': 'logout', 'url': 'logout_url', 'active': ''},
-        ]
+        if request.LANGUAGE_CODE == 'en':
+            links = [
+                {'name': 'men', 'url': 'men_url', 'active': ''},
+                {'name': 'women', 'url': 'women_url', 'active': ''},
+                {'name': 'kid', 'url': 'kid_url', 'active': ''},
+                {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'logout', 'url': 'logout_url', 'active': ''},
+                {'name': 'profile', 'url': 'profile_url', 'active': ''}
+            ]
+        else:
+            links = [
+                {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+                {'name': 'Женский', 'url': 'women_url', 'active': ''},
+                {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+                {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+                
+                {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+                {'name': 'Профиль', 'url': 'profile_url', 'active': ''}
+            ]
         ticket = Ticket.objects.get(id=id)
         context = {
             'links': links,
@@ -661,17 +818,26 @@ def ticketDetailView(request, id):
 
 
 def checkoutView(request):
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-        {'name': 'profile', 'url': 'profile_url', 'active': ''},
-        {'name': 'logout', 'url': 'logout_url', 'active': ''},
-    ]
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+            {'name': 'logout', 'url': 'logout_url', 'active': ''},
+            {'name': 'profile', 'url': 'profile_url', 'active': ''}
+        ]
+    else:
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+            {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+            {'name': 'Профиль', 'url': 'profile_url', 'active': ''}
+        ]
 
     cart = Cart(request).cart
     total = 0
@@ -711,17 +877,26 @@ def historyView(request):
     if not request.user.is_authenticated:
         return redirect('login_url')
 
-    links = [
-        {'name': 'home', 'url': 'home_url', 'active': ''},
-        {'name': 'men', 'url': 'men_url', 'active': ''},
-        {'name': 'women', 'url': 'women_url', 'active': ''},
-        {'name': 'kid', 'url': 'kid_url', 'active': ''},
-        {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
-        {'name': 'about', 'url': 'about_url', 'active': ''},
-        {'name': 'contact us', 'url': 'contact_url', 'active': ''},
-        {'name': 'profile', 'url': 'profile_url', 'active': ''},
-        {'name': 'logout', 'url': 'logout_url', 'active': ''},
-    ]
+    if request.LANGUAGE_CODE == 'en':
+        links = [
+            {'name': 'men', 'url': 'men_url', 'active': ''},
+            {'name': 'women', 'url': 'women_url', 'active': ''},
+            {'name': 'kid', 'url': 'kid_url', 'active': ''},
+            {'name': 'accessories', 'url': 'accessories_url', 'active': ''},
+            
+            {'name': 'logout', 'url': 'logout_url', 'active': ''},
+            {'name': 'profile', 'url': 'profile_url', 'active': ''}
+        ]
+    else:
+        links = [
+            {'name': 'Мужской', 'url': 'men_url', 'active': ''},
+            {'name': 'Женский', 'url': 'women_url', 'active': ''},
+            {'name': 'Детский', 'url': 'kid_url', 'active': ''},
+            {'name': 'Акксессуары', 'url': 'accessories_url', 'active': ''},
+            
+            {'name': 'Выход', 'url': 'logout_url', 'active': ''},
+            {'name': 'Профиль', 'url': 'profile_url', 'active': ''}
+        ]
     orders = Order.objects.filter(customer=request.user)
     context = {
         'links': links,
